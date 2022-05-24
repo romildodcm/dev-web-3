@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/")
 public class Atividade1 extends HttpServlet {
-    private static final long serialVersionUID = 3L;
+    private static final long serialVersionUID = 1882L;
 
     @Override
     protected void doGet(HttpServletRequest requisicao, HttpServletResponse resposta)

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/requisicao")
 public class Atividade2a extends HttpServlet {
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 1585L;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
