@@ -37,7 +37,7 @@
 
 
 
-					<form method="post" action="processa">
+				<form method="post" action="processa">
 					<div class="mb-3">
 						<input type="text" name="field_nome" value=""> <br /> <input
 							type="date" name="field_data"> <br /> <select name=""
@@ -57,7 +57,7 @@
 							value="javascript"> JavaScript
 						</span> <br> <input type="submit" value="Enviar">
 					</div>
-					</form>
+				</form>
 
 
 			</div>
