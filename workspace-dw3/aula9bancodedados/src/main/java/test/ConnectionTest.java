@@ -16,14 +16,16 @@ public class ConnectionTest {
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM products");
-			ResultSet produtos = stmt.executeQuery();
+			ResultSet listaBd = stmt.executeQuery();
 			
-			while (produtos.next()) {
-                System.out.println(produtos.ge)
+			while (listaBd.next()) {
+                Integer id = listaBd.getInt("id");
+                String name = listaBd.getString("name");
+                Double preco = listaBd.getDouble("price");
+                
+                System.out.println(id + "," + name + "," + preco);
             }
 					
-					
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
