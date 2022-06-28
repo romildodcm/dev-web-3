@@ -1,8 +1,0 @@
-Se eu tenho um tipo object (geral), e quero passar para um tipo específico, 
-coloco um
-
-String test = (String)meuObjeto;
-
-essa classe entre parenteses é o cast, força uma conversão.
-
-fazer uma sessão para o usuário e se  entrar como logado e com essas dados, joga apra o form
