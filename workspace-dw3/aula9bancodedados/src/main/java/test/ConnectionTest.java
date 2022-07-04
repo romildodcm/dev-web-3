@@ -10,9 +10,10 @@ import connection.ConnectionFactory;
 
 public class ConnectionTest {
 	public static void main(String[] args) {
-		ConnectionFactory factory = new ConnectionFactory();
+		// ConnectionFactory factory = new ConnectionFactory();
 		
-		Connection conn = factory.getConnection();
+		// Não precisa ser instanciado pois se trata de um método estático
+		Connection conn = ConnectionFactory.getConnection();
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM products");
