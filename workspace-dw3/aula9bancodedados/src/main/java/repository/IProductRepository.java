@@ -2,18 +2,20 @@ package repository;
 
 import java.util.List;
 
+import models.Product;
+
 public interface IProductRepository {
 	
-	public Integer insert(String name, Double price);
+	public Integer insert(Product product);
 	
-	public Integer update(Integer id, String name, Double price);
+	public Integer update(Product product);
 	
 	public Integer deleteById(Integer id);
 	
-	public List<String> findAll();
+	public List<Product> findAll();
 	
-	public String findById(Integer id);
+	public Product findById(Integer id);
 	
-	public String findByName(String name);
+	public Product findByName(String name);
 
 }

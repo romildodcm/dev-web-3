@@ -4,15 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
-
 import connection.ConnectionFactory;
 
+
 public class ConnectionTest {
-	public static void main(String[] args) {
-		// ConnectionFactory factory = new ConnectionFactory();
-		
-		// Não precisa ser instanciado pois se trata de um método estático
+	public static void main(String[] args) throws ClassNotFoundException {
 		Connection conn = ConnectionFactory.getConnection();
 		
 		try {
@@ -28,8 +24,7 @@ public class ConnectionTest {
             }
 					
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
 		}
 	}
 }
