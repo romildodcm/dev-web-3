@@ -61,6 +61,15 @@ public class Product {
 	public void setImageUri(String imageUri) {
 		this.imageUri = imageUri;
 	}
+	
+	public String toString() {
+		String output;
+		
+		output  = this.id + this.name;
+		
+		return output;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

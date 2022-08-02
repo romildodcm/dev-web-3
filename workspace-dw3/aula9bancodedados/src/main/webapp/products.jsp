@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Lista de Produtos</title>
 </head>
 <body>
 
@@ -21,6 +21,8 @@
     <%
     List<Product> products = (List<Product>) request.getAttribute("products");
     
+    if (products != null) {
+      
     for(Product p: products) {%>   
     <tr>
       <td><%= p.getId() %></td>
@@ -29,7 +31,19 @@
       <td><%= p.getDescription() %></td>
       <td><%= p.getImageUri() %></td>
     </tr>
-    <% } %>
+    <% }
+    } else {  %>
+    <tr>
+        <td> --- </td>
+        <td> --- </td>
+        <td> --- </td>
+        <td> --- </td>
+        <td> --- </td>
+     </tr>
+    <% }
+    
+    %>
+    
   </table>
 
 </body>
