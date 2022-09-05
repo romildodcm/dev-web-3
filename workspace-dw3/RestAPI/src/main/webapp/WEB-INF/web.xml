@@ -3,6 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
+	<display-name>RestAPI</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
@@ -25,12 +26,10 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	
 	<servlet-mapping>
-		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-name>jersey-servlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
-
 
 
 </web-app>
