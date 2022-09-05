@@ -1,12 +1,15 @@
 package app.resources;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 //import javax.ws.rs.core.Response.Status; para usar só Status.OK
@@ -14,7 +17,7 @@ import javax.ws.rs.core.Response;
 import app.models.*;
 
 
-@Path("/products")
+@Path("products")
 public class ProductResource {
 	//private static final long serialVersionUID = 101L;
 	
@@ -34,7 +37,12 @@ public class ProductResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getAll() {
+	public Response getAll(@QueryParam("sort") String sort) {
+		Collections.sort(products, Comparator.comparing(Product::getPrice));
+		
+		if(sort != null && sort.equals("desc")) {
+			Collections.reverse(products);
+		}
 		
 		return Response.status(Response.Status.OK).entity(products).build();
 	}
@@ -43,15 +51,16 @@ public class ProductResource {
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getById(@PathParam("id") Integer id) {
-		Product p = null;
+		Product product = null;
 		
-		if(id == 1) {
-			p = products.get(0);
-		} else if(id == 2) {
-			p = products.get(1);
-		} else if(id == 3) {
-			p = products.get(2);
-		} else {
+		for (Product p : products) {
+			if (p.getId() == id) {
+				product = p;
+				break;
+			}
+		}
+		
+		if(product == null) {
 			MyError err = new MyError();
 			err.setName("Not Found");
 			err.setStatus("404");
@@ -59,6 +68,6 @@ public class ProductResource {
 			return Response.status(Response.Status.NOT_FOUND).entity(err).build();
 		}
 		
-		return Response.status(Response.Status.OK).entity(p).build();
+		return Response.status(Response.Status.OK).entity(product).build();
 	}
 }
